@@ -1,51 +1,50 @@
 # CacheLayer for Codex
 
-This plugin connects Codex to CacheLayer step caching over Streamable HTTP MCP, with an optional PreToolUse hook on non-Windows platforms.
+Codex plugin: Streamable HTTP MCP for step lookup/save/conflict checks, plus a skill for tool usage.
 
-Website: [https://cachelayer.org/](https://cachelayer.org/)
+Site: https://cachelayer.org/
 
-## Getting started
+## Install
 
-1. Install from this repo / your marketplace (`/plugins` in the Codex CLI).
-2. Confirm MCP points at `https://api.cachelayer.org/mcp/http`.
-3. Restart Codex.
+Repo marketplace: copy this folder under `plugins/cachelayer` and register it in `.agents/plugins/marketplace.json`, then restart Codex.
 
-Example MCP config (also in `.mcp.json`):
+Personal: copy to `~/.codex/plugins/cachelayer`, register in `~/.agents/plugins/marketplace.json`, restart Codex.
 
-```json
-{
-  "mcpServers": {
-    "CacheLayer": {
-      "url": "https://api.cachelayer.org/mcp/http"
-    }
-  }
-}
+Or open `codex /plugins` after the marketplace entry exists.
+
+MCP URL (in `.mcp.json`): `https://api.cachelayer.org/mcp/http`
+
+When auth ships, add Authorization on the MCP entry without changing the URL.
+
+## Layout
+
+```text
+.codex-plugin/plugin.json
+.mcp.json
+skills/cachelayer-tools/SKILL.md
 ```
 
-When auth ships, set `CACHELAYER_CONNECT_TOKEN` for the hook and add Authorization on the MCP entry without changing the URL.
+## Tools
 
-## Features
+- `lookup_step` / `save_step` / `check_conflict` / `run_status` over Streamable HTTP
 
-- MCP tools over Streamable HTTP: `lookup_step`, `save_step`, `check_conflict`, `run_status`
-- PreToolUse hook (fail-open, 2s timeout) on macOS/Linux
-- Skill for correct tool argument patterns
+Codex has no Claude-style PreToolUse hooks. Behavior is MCP tools + skill guidance (and optional `config.toml` execution policy on your side).
 
-## Notes and limitations
+## Limits
 
-- **Windows:** Codex hooks are not Windows-compatible. Windows users get MCP tools + skills only, not hook enforcement.
-- Hook is fail-open if CacheLayer is down or slow.
-- A CacheLayer account/subscription is required once auth is enabled.
+- Keep descriptions short so lookups match saves
+- Do not save secrets from env files
 
 ## Compliance
 
-1. **No impersonation.** This plugin is CacheLayer only. It does not present itself as OpenAI, Codex, or any other company or brand.
-2. **No malicious code.** This plugin does not steal user data, modify the system without permission, or bundle malware.
-3. **Transparent requirement.** A third-party CacheLayer account/subscription is required to use this plugin.
+1. No impersonation. CacheLayer only; not OpenAI or Codex.
+2. No malicious code.
+3. A CacheLayer account/subscription is required.
 
 ## Contact
 
-[https://cachelayer.org/](https://cachelayer.org/)
+https://cachelayer.org/
 
 ## Legal
 
-Licensed under the Apache License 2.0. See `LICENSE` if present in this repo, or https://www.apache.org/licenses/LICENSE-2.0
+Apache License 2.0. See `LICENSE`.

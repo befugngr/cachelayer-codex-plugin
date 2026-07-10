@@ -1,6 +1,12 @@
 {
   "name": "cachelayer",
-  "description": "CacheLayer step caching for Codex. MCP tools plus PreToolUse hook (non-Windows).",
   "version": "1.0.0",
-  "author": { "name": "CacheLayer" }
+  "description": "CacheLayer step caching for Codex over Streamable HTTP MCP.",
+  "author": { "name": "CacheLayer", "url": "https://cachelayer.org/" },
+  "homepage": "https://cachelayer.org/",
+  "repository": "https://github.com/befugngr/cachelayer-codex-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["cache", "mcp", "agents"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
 }
