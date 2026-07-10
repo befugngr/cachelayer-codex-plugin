@@ -1,0 +1,6 @@
+{
+  "name": "cachelayer",
+  "description": "CacheLayer step caching for Codex. MCP tools plus PreToolUse hook (non-Windows).",
+  "version": "1.0.0",
+  "author": { "name": "CacheLayer" }
+}
