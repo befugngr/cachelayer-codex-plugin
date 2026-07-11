@@ -6,15 +6,30 @@ Site: https://cachelayer.org/
 
 ## Install
 
-Repo marketplace: copy this folder under `plugins/cachelayer` and register it in `.agents/plugins/marketplace.json`, then restart Codex.
+Repo marketplace: copy this folder under `plugins/cachelayer` and register it in `$REPO_ROOT/.agents/plugins/marketplace.json`, then restart Codex.
 
 Personal: copy to `~/.codex/plugins/cachelayer`, register in `~/.agents/plugins/marketplace.json`, restart Codex.
 
 Or open `codex /plugins` after the marketplace entry exists.
 
-MCP URL (in `.mcp.json`): `https://api.cachelayer.org/mcp/http`
+### Auth (required)
 
-When auth ships, add Authorization on the MCP entry without changing the URL.
+This plugin’s bundled `.mcp.json` (inside the plugin directory — not `~/.codex/config.toml`) must send a connect token:
+
+```json
+{
+  "mcpServers": {
+    "CacheLayer": {
+      "url": "https://api.cachelayer.org/mcp/http",
+      "headers": {
+        "Authorization": "Bearer YOUR_clct_TOKEN"
+      }
+    }
+  }
+}
+```
+
+Unauthenticated requests return **401**. Codex’s global MCP config lives in `~/.codex/config.toml` if you prefer to register the same server there instead of via the plugin bundle.
 
 ## Layout
 
