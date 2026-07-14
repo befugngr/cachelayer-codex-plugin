@@ -6,7 +6,7 @@
   "homepage": "https://cachelayer.org/",
   "repository": "https://github.com/befugngr/cachelayer-codex-plugin",
   "license": "Apache-2.0",
-  "keywords": ["cache", "mcp", "agents"],
+  "keywords": ["cache", "mcp", "codex", "agents"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json"
 }

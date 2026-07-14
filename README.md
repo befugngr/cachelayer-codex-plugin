@@ -6,30 +6,45 @@ Site: https://cachelayer.org/
 
 ## Install
 
-Repo marketplace: copy this folder under `plugins/cachelayer` and register it in `$REPO_ROOT/.agents/plugins/marketplace.json`, then restart Codex.
+```bash
+codex plugin marketplace add befugngr/cachelayer-codex-plugin
+codex plugin add cachelayer
+```
+
+(`codex plugin add` installs from a configured marketplace; use `codex plugin list` / `codex plugin remove` to manage.)
+
+Repo marketplace (dev): copy this folder under `plugins/cachelayer` and register it in `$REPO_ROOT/.agents/plugins/marketplace.json`, then restart Codex.
 
 Personal: copy to `~/.codex/plugins/cachelayer`, register in `~/.agents/plugins/marketplace.json`, restart Codex.
 
-Or open `codex /plugins` after the marketplace entry exists.
-
 ### Auth (required)
 
-This plugin’s bundled `.mcp.json` (inside the plugin directory — not `~/.codex/config.toml`) must send a connect token:
+Set `CACHELAYER_KEY` to your `clct_<your-token>` connect token. This plugin’s bundled `.mcp.json` sends:
 
 ```json
 {
   "mcpServers": {
-    "CacheLayer": {
-      "url": "https://api.cachelayer.org/mcp/http",
+    "cachelayer": {
+      "url": "https://api.cachelayer.org/mcp",
       "headers": {
-        "Authorization": "Bearer YOUR_clct_TOKEN"
+        "Authorization": "Bearer ${CACHELAYER_KEY}"
       }
     }
   }
 }
 ```
 
-Unauthenticated requests return **401**. Codex’s global MCP config lives in `~/.codex/config.toml` if you prefer to register the same server there instead of via the plugin bundle.
+Unauthenticated requests return **401**. Codex’s global MCP config lives in `~/.codex/config.toml` if you prefer to register the same server there:
+
+```toml
+# ~/.codex/config.toml
+
+[mcp_servers.cachelayer]
+url = "https://api.cachelayer.org/mcp"
+
+[mcp_servers.cachelayer.http_headers]
+Authorization = "Bearer ${CACHELAYER_KEY}"
+```
 
 ## Layout
 
@@ -37,6 +52,8 @@ Unauthenticated requests return **401**. Codex’s global MCP config lives in `~
 .codex-plugin/plugin.json
 .mcp.json
 skills/cachelayer-tools/SKILL.md
+LICENSE
+README.md
 ```
 
 ## Tools
