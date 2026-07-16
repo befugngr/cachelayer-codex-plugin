@@ -2,9 +2,7 @@
   "mcpServers": {
     "cachelayer": {
       "url": "https://api.cachelayer.org/mcp",
-      "headers": {
-        "Authorization": "Bearer ${CACHELAYER_KEY}"
-      }
+      "bearer_token_env_var": "CACHELAYER_KEY"
     }
   }
 }

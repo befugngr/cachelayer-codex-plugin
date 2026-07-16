@@ -1,0 +1,20 @@
+{
+  "name": "cachelayer-codex-plugin",
+  "interface": {
+    "displayName": "CacheLayer"
+  },
+  "plugins": [
+    {
+      "name": "cachelayer",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
