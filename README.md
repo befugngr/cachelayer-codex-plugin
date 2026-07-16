@@ -2,16 +2,19 @@
 
 Cache completed agent steps and reuse them in future tasks.
 
-## Requirements
+## Prerequisites
 
 - Codex with plugin support
+- Git (required for marketplace installation)
+  - Windows: `winget install --id Git.Git -e`
+  - Or download from https://git-scm.com/
 - A CacheLayer connect token (`clct_...`) from https://cachelayer.org/
 
 ## Install
 
 ```bash
 codex plugin marketplace add befugngr/cachelayer-codex-plugin
-codex plugin add cachelayer
+codex plugin add cachelayer@cachelayer-codex-plugin
 ```
 
 Restart Codex or start a new session so the bundled skill and MCP tools load.
@@ -25,7 +28,15 @@ codex plugin remove cachelayer
 
 ## Authenticate
 
-Set your connect token:
+Set your connect token as `CACHELAYER_KEY`.
+
+PowerShell:
+
+```powershell
+$env:CACHELAYER_KEY = "clct_<your-token>"
+```
+
+macOS/Linux:
 
 ```bash
 export CACHELAYER_KEY='clct_<your-token>'
@@ -51,6 +62,8 @@ Optional `~/.codex/config.toml` configuration:
 url = "https://api.cachelayer.org/mcp"
 bearer_token_env_var = "CACHELAYER_KEY"
 ```
+
+Missing or invalid tokens return MCP `401`. Restart Codex or start a new session after installation or configuration changes.
 
 ## Verify
 
