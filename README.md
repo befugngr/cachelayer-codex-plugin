@@ -62,7 +62,7 @@ bearer_token_env_var = "CACHELAYER_KEY"
 ## Repository layout
 
 ```text
-marketplace.json
+.agents/plugins/marketplace.json
 .codex-plugin/plugin.json
 .mcp.json
 skills/cachelayer-tools/SKILL.md

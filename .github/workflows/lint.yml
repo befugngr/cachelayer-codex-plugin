@@ -13,7 +13,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, sys
-          for p in ["marketplace.json", ".codex-plugin/plugin.json", ".mcp.json"]:
+          for p in [".agents/plugins/marketplace.json", ".codex-plugin/plugin.json", ".mcp.json"]:
               with open(p) as f:
                   json.load(f)
               print(f"OK json {p}")
