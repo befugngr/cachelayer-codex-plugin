@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cachelayer": {
+      "url": "https://api.cachelayer.org/mcp/http",
+      "bearer_token_env_var": "CACHELAYER_KEY"
+    }
+  }
+}
