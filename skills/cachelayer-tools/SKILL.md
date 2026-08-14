@@ -7,7 +7,7 @@ description: >-
 
 # CacheLayer tools
 
-Set `CACHELAYER_KEY` to your `clct_<token>`. Codex has no PreToolUse hooks; use MCP **sparingly**.
+Set `CACHELAYER_KEY` to your `clct_<token>`. Use remote cache MCP **sparingly**. A bundled PostToolUse hook lints files you change through `apply_patch` when `codex_hooks` is enabled, so do not spend a turn linting that file yourself.
 
 ## When to call
 

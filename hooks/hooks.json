@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/agent/run_critic.sh\" ] && exec bash \"$d/agent/run_critic.sh\"; done; printf \"{}\\n\"'",
+            "timeout": 15,
+            "statusMessage": "CacheLayer CRITIC"
+          }
+        ]
+      }
+    ]
+  }
+}
