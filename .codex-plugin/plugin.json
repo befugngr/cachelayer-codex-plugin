@@ -1,12 +1,20 @@
 {
   "name": "cachelayer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CacheLayer managed keys for Codex. Connect token (CACHELAYER_KEY) enables step caching via MCP.",
-  "author": { "name": "CacheLayer", "url": "https://cachelayer.org/" },
+  "author": {
+    "name": "CacheLayer",
+    "url": "https://cachelayer.org/"
+  },
   "homepage": "https://cachelayer.org/",
   "repository": "https://github.com/befugngr/cachelayer-codex-plugin",
   "license": "Apache-2.0",
-  "keywords": ["cache", "mcp", "codex", "agents"],
+  "keywords": [
+    "cache",
+    "mcp",
+    "codex",
+    "agents"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {

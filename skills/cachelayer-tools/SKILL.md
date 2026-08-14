@@ -15,6 +15,14 @@ Set `CACHELAYER_KEY` to your `clct_<token>`. Codex has no PreToolUse hooks; use 
 - Risky writes: `check_conflict`
 - Resume: `run_status`
 
+## Local coding-agent tools
+
+- `verify_edit` — once after a coherent code edit; typecheck → lint → affected tests.
+- `run_affected_tests` — a bounded impacted subset, not the full suite.
+- `debug_failure` — **once** after a failed test/command. Pass its traceback/output, use the one-shot rubric and `next`, and do not launch a second debug loop.
+
+Never call local tools on every Read/Grep, markdown edit, or passing test.
+
 ## Do not
 
 - Lookup/save before every trivial read
