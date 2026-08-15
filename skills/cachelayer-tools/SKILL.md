@@ -19,7 +19,7 @@ Set `CACHELAYER_KEY` to your `clct_<token>`. Use remote cache MCP **sparingly**.
 
 - `verify_edit` — once after a coherent code edit; typecheck → lint → affected tests.
 - `run_affected_tests` — a bounded impacted subset, not the full suite.
-- `debug_failure` — **once** after a failed test/command. Pass its traceback/output, use the one-shot rubric and `next`, and do not launch a second debug loop.
+- `debug_failure` — call once after a real failure with its traceback/output. For verified minimization, also pass `failing_input` and bounded `repro.argv`; do not start a second debug loop.
 
 Never call local tools on every Read/Grep, markdown edit, or passing test.
 
