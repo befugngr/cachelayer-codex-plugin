@@ -1,6 +1,6 @@
 {
   "name": "cachelayer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CacheLayer managed keys for Codex. Connect token (CACHELAYER_KEY) enables step caching via MCP.",
   "author": {
     "name": "CacheLayer",

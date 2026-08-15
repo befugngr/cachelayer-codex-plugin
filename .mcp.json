@@ -6,8 +6,11 @@
     },
     "cachelayer-agent": {
       "type": "stdio",
-      "command": "./agent/run.sh",
-      "cwd": "."
+      "command": "./cachelayer_tools/run_mcp.sh",
+      "cwd": ".",
+      "env_vars": [
+        "CACHELAYER_WORKSPACE_ROOT"
+      ]
     }
   }
 }

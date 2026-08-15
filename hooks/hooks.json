@@ -1,12 +1,36 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Grep|Glob|Search|mcp__.+__(read|grep|glob|search|fetch).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/scripts/pre_tool_use.sh\" ] && exec bash \"$d/scripts/pre_tool_use.sh\"; done'",
+            "timeout": 3,
+            "statusMessage": "Checking CacheLayer"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
+      {
+        "matcher": "Read|Grep|Glob|Search|mcp__.+__(read|grep|glob|search|fetch).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/scripts/post_tool_use.sh\" ] && exec bash \"$d/scripts/post_tool_use.sh\"; done'",
+            "timeout": 3,
+            "statusMessage": "Saving CacheLayer result"
+          }
+        ]
+      },
       {
         "matcher": "apply_patch|ApplyPatch|Edit|Write|MultiEdit|NotebookEdit|create_file|edit_file|write_file|str_replace_editor|replace_string_in_file|insert_edit_into_file|multi_replace_string_in_file",
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/agent/run_critic.sh\" ] && exec bash \"$d/agent/run_critic.sh\"; done; printf \"{}\\n\"'",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/cachelayer_tools/run_verify_hook.sh\" ] && exec bash \"$d/cachelayer_tools/run_verify_hook.sh\"; done; printf \"{}\\n\"'",
             "timeout": 15,
             "statusMessage": "CacheLayer CRITIC"
           }
