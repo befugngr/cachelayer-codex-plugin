@@ -25,6 +25,8 @@ export CACHELAYER_KEY="cl_<your-org-key>"
 # export ANTHROPIC_API_KEY="sk-ant-<your-provider-key>"
 ```
 
+For per-flow Agent OS metrics in the console, also send header `x-amg-flow: <flow_id>`.
+
 Hooks and MCP stay on `https://api.cachelayer.org` (unchanged) with `Authorization: Bearer $CACHELAYER_KEY`.
 
 ## 1. Add the CacheLayer marketplace and install the plugin
