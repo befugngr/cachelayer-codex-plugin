@@ -8,7 +8,21 @@ Personal / BYOK: https://cachelayer.org/integrations/codex
 
 ## CLI
 
-### 1. Add the CacheLayer marketplace and install the plugin
+### Agent OS (LLM traffic)
+
+Point the model at CacheLayer Agent OS so it clears memory and only gives the agent what the current step needs:
+
+```bash
+export OPENAI_BASE_URL="https://api.cachelayer.org/cl-gate/v1"
+export OPENAI_API_KEY="$CACHELAYER_KEY"
+# Optional Anthropic-shaped clients:
+# export ANTHROPIC_BASE_URL="https://api.cachelayer.org/cl-gate"
+# export ANTHROPIC_API_KEY="$CACHELAYER_KEY"
+```
+
+Hooks and MCP stay on `https://api.cachelayer.org` (unchanged).
+
+## 1. Add the CacheLayer marketplace and install the plugin
 
 ```bash
 codex plugin marketplace add befugngr/cachelayer-codex-plugin
