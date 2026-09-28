@@ -7,7 +7,7 @@ description: >-
 
 # CacheLayer tools
 
-Set `CACHELAYER_KEY` to your `clct_<token>`. When Codex hooks are enabled, silent
+Set `CACHELAYER_KEY` to your `cl_…` or `clct_…`. When Codex hooks are enabled, silent
 hooks handle bounded lookup/save for explicit read/search tools only; do not
 MCP-tax every step. Set `CACHELAYER_WORKSPACE_ROOT` when Codex is launched
 outside the target repository.
