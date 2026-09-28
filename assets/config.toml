@@ -1,0 +1,4 @@
+# Optional Codex config fragment for CacheLayer managed keys.
+# Merge into ~/.codex/config.toml (or project config) after install.
+
+compact_prompt = """When compacting conversation history, preserve: active file paths and open tasks; decisions and constraints still in force; errors still being fixed; CacheLayer session or flow ids if present. Drop large file dumps already on disk and repeated tool outputs that are no longer needed."""

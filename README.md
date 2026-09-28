@@ -79,3 +79,7 @@ launchctl setenv CACHELAYER_KEY 'cl_<your-token>'
 ### 6. Restart Codex
 
 Fully quit Codex (Cmd+Q on macOS) and reopen.
+
+## Compact + stable instructions
+
+This plugin ships `AGENTS.md`, `PreCompact` / `PostCompact` hooks, and `assets/config.toml` with a `compact_prompt` you can merge into your Codex config.

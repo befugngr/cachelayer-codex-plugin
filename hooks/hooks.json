@@ -36,6 +36,30 @@
           }
         ]
       }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/scripts/pre_compact.sh\" ] && exec bash \"$d/scripts/pre_compact.sh\"; done; printf \"{}\\n\"'",
+            "timeout": 5,
+            "statusMessage": "CacheLayer flush before compact"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'for d in \"$PLUGIN_ROOT\" \"$CLAUDE_PLUGIN_ROOT\" .; do [ -n \"$d\" ] && [ -f \"$d/scripts/post_compact.sh\" ] && exec bash \"$d/scripts/post_compact.sh\"; done; printf \"{}\\n\"'",
+            "timeout": 5,
+            "statusMessage": "CacheLayer notes after compact"
+          }
+        ]
+      }
     ]
   }
 }
