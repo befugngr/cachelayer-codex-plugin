@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "CacheLayer Managed Keys",
     "shortDescription": "Managed keys step cache for Codex",
-    "longDescription": "CacheLayer managed keys for Codex. Set CACHELAYER_KEY to your connect token (clct_…) from https://cachelayer.org/.",
+    "longDescription": "CacheLayer managed keys for Codex. Set CACHELAYER_KEY to your connect token (cl_…) from https://cachelayer.org/.",
     "developerName": "CacheLayer",
     "category": "Productivity",
     "websiteURL": "https://cachelayer.org/",
